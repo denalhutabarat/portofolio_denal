@@ -63,7 +63,7 @@ Table: `users`
 
 ## 💖 Donasi
 
-Jika kamu ingin mendukung project ini, kamu bisa memberikan donasi langsung dari web dibawah 🙌
+Jika kamu ingin mendukung project ini, kamu bisa memberikan donasi langsung dari web 🙌
 
 Setiap dukungan sangat berarti untuk pengembangan project ini ke depannya 🚀
 
