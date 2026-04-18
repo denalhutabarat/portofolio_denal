@@ -1,5 +1,5 @@
-# 🎮 Portofolio Game - Denal
-[![Kunjungi Website](https://img.shields.io/badge/Kunjungi%20Website-Click%20Here-orange?style=for-the-badge)]([https://link-kamu.com](https://denalhutabarat.vercel.app)
+# 🎮 Portofolio - Denal
+[![Kunjungi Website](https://img.shields.io/badge/Kunjungi%20Website-Click%20Here-orange?style=for-the-badge)](https://denalhutabarat.vercel.app)
 
 Website portofolio interaktif yang berisi mini game berbasis web dengan sistem leaderboard online menggunakan Supabase.
 
