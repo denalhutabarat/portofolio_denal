@@ -1,0 +1,1092 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh; /* Gunakan min-height, bukan height */
+  height: auto;     /* Biarkan tinggi mengikuti isi konten */
+  overflow-x: hidden;
+  background: linear-gradient(to right, rgb(245, 199, 147), rgb(236, 158, 74));
+}
+
+header {
+  margin-top: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 9%;
+  background-color: transparent;
+  filter: drop-shadow(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  -webkit-filter: drop-shadow(10px);
+}
+
+/* Perbaikan Navbar agar tidak menghalangi klik */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 7%; /* Kecilkan sedikit paddingnya */
+    background-color: rgba(1, 1, 1, 0.9);
+    border-bottom: 1px solid #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000; /* Tetap di atas */
+    height: 70px; /* Kunci tingginya agar tidak meluber */
+}
+
+/* Beri jarak agar selection-screen tidak tertutup navbar */
+#selection-screen {
+    margin-top: 100px; /* Tambahkan ini agar tombol turun ke bawah navbar */
+    position: relative;
+    z-index: 1; /* Pastikan di bawah navbar tapi di atas background */
+}
+
+.game-card {
+    cursor: pointer; /* Pastikan kursor berubah jadi jari saat diarahkan ke game */
+    pointer-events: auto; /* Paksa agar bisa menerima klik */
+}
+
+.navbar .navbar-nav {
+  margin-left: 35rem;
+}
+
+
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  font-style: italic;
+}
+
+.navbar .navbar-logo span {
+  color: oklch(63.322% 0.09856 74.967);
+}
+
+.navbar .navbar-nav a {
+  font-size: 1.8rem;
+  color: white;
+  margin-left: 4rem;
+  display: inline-block;
+  font-size: 1.5rem;
+  margin: 0 2rem;
+  transition: 0.3s ease;
+}
+
+.navbar-nav a:hover,
+.navbar-extra a:hover,
+.navbar-nav a.active {
+  color: oklch(63.322% 0.09856 74.967);
+  border-bottom: 3px solid oklch(63.322% 0.09856 74.967);
+}
+
+.navbar .navbar-extra a {
+  display: none;
+  color: #fff;
+  margin: 0 1rem;
+}
+
+#humburger-menu {
+  display: none;
+}
+
+#music-menu {
+  display: inline-block;
+}
+
+/* Media Query untuk HP */
+@media (max-width: 480px) {
+  /* Membuat container kartu menjadi satu kolom ke bawah */
+  .card-list, 
+  .store-grid {
+    display: flex;
+    flex-direction: column; /* Lurus ke bawah */
+    align-items: center;    /* Rata tengah secara horizontal */
+    gap: 2rem;             /* Jarak antar kartu */
+    padding: 2rem;
+  }
+
+  /* Memastikan ukuran kartu pas dan tidak terlalu lebar atau sempit */
+  .card, 
+  .product-card {
+    width: 100%;           /* Mengikuti lebar layar */
+    max-width: 320px;      /* Batas maksimal agar tetap rapi */
+    margin: 0 auto;        /* Memastikan di tengah */
+  }
+
+  /* Menyesuaikan teks agar rata tengah jika diperlukan */
+  .card-text, 
+  .product-card h3, 
+  .product-card p {
+    text-align: center;
+  }
+}
+
+@media(max-width:995px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 7%;
+    background-color: #030303;
+    border-bottom: 1px solid #513c28;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-logo {
+    margin-left: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    font-style: italic;
+  }
+
+  .navbar .navbar-logo span {
+    color: oklch(63.322% 0.09856 74.967);
+  }
+
+
+
+  .navbar-nav a:hover,
+  .navbar-nav a.active {
+    color: oklch(63.322% 0.09856 74.967);
+    border-bottom: 3px solid oklch(63.322% 0.09856 74.967);
+  }
+
+  .about {
+    padding: 8rem 7% 1.4rem;
+    background-color: #513c28;
+  }
+
+  .hobi {
+    padding: 8rem 7% 1.4rem;
+    align-items: center;
+  }
+
+  .hobi .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    justify-content: center;
+  }
+
+  .hobi .row .menu-card {
+    text-align: center;
+    padding-bottom: 4rem;
+  }
+
+  .hobi .row .menu-card img {
+    border-radius: 50%;
+    width: 70%;
+  }
+
+  .hobi .row .menu-card .menu-card-title {
+    color: #fff;
+    margin: 1rem auto 0.5rem;
+  }
+}
+
+section {
+  min-height: 100vh;
+  padding: 5rem 9% 5rem;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9rem;
+  background-color: transparent;
+}
+
+.home .home-content h1 {
+  color: #fff;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+span {
+  color: oklch(63.322% 0.09856 74.967);
+}
+
+.home-content h3 {
+  color: #fff;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.home-content p,
+.about {
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+.home-img {
+  display: flex;
+  align-items: center;
+}
+
+.home-img img {
+  position: relative;
+  width: 30vw;
+  border: #fff;
+  border-radius: 100%;
+  box-shadow: 0 0 25px solid oklch(63.322% 0.09856 74.967);
+  cursor: pointer;
+  transition: 0.2s linear;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+
+.home-img img:hover {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background-color: transparent;
+  border: 0.2rem solid oklch(63.322% 0.09856 74.967);
+  font-size: 2rem;
+  border-radius: 50%;
+  margin: 3rem 1.5rem 3rem 0;
+  transition: 0.3s ease;
+  color: oklch(63.322% 0.09856 74.967);
+}
+
+.social-icons a:hover {
+  color: #fff;
+  transform: scale(1.3) translateY(-5px);
+  background-color: oklch(63.322% 0.09856 74.967);
+  box-shadow: 0 0 25px oklch(63.322% 0.09856 74.967);
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background-color: transparent;
+  border-radius: 4rem;
+  font-size: 1.6rem;
+  color: oklch(63.322% 0.09856 74.967);
+  letter-spacing: 0.3rem;
+  font-weight: 600;
+  border: 2px solid oklch(63.322% 0.09856 74.967);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale3d(1.03);
+  background-color: oklch(63.322% 0.09856 74.967);
+  color: #fff;
+  box-shadow: 0 0 25px oklch(63.322% 0.09856 74.967);
+}
+
+.typing-text {
+  font-size: 34px;
+  font-weight: 600;
+  min-width: 280px;
+}
+
+.typing-text span {
+  position: relative;
+}
+
+.typing-text span::before {
+  content: "software Developer";
+  color: oklch(63.322% 0.09856 74.967);
+  animation: words 20s infinite;
+}
+
+.typing-text span::after {
+  content: "";
+  background-color: transparent;
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  border-left: 3px solid transparent;
+  right: -8;
+  animation: cursor 0.6s infinite;
+  -webkit-animation: cursor 0.6s infinite;
+}
+
+.about,
+.project,
+.music {
+  padding: 8rem 7% 1.4rem;
+  background: linear-gradient(to right, rgb(245, 199, 147), rgb(236, 158, 74));
+}
+
+.about h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 5rem;
+}
+
+.music h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 2.6rem;
+  margin: 3rem;
+  margin-bottom: 5rem;
+}
+
+.hobi h1,
+.project h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
+
+.about-img {
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.about-img img {
+  border-radius: 50%;
+  width: 20%;
+}
+
+.hobi {
+  padding: 8rem 7% 1.4rem;
+}
+
+.hobi .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+  justify-content: center;
+}
+
+.hobi .row .menu-card {
+  text-align: center;
+  margin: 0 3rem;
+  padding-bottom: 4rem;
+}
+
+.hobi .row .menu-card img {
+  border-radius: 50%;
+  width: 190px;
+}
+
+.hobi .row .menu-card .menu-card-title {
+  color: #fff;
+  margin: 1rem auto 0.5rem;
+}
+
+.about p {
+  margin-bottom: 5rem;
+}
+
+.about-content h3 {
+  color: #fff;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.about-content p {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 4rem;
+}
+
+.about-content .btn {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  margin-bottom: 7.5rem;
+  justify-content: center;
+  text-align: center;
+}
+
+.about-content .btn:hover {
+  transform: scale3d(1.03);
+  background-color: oklch(63.322% 0.09856 74.967);
+  color: #fff;
+  box-shadow: 0 0 25px oklch(63.322% 0.09856 74.967);
+}
+
+.project-img {
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.project-img img {
+  border-radius: 10%;
+  width: 50%;
+}
+
+.project p {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 4rem;
+}
+
+/* Music Section Styling */
+#music {
+  background: linear-gradient(to right, rgb(245, 199, 147), rgb(236, 158, 74));
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spotify-container {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.music-description p {
+  font-size: 1.2rem;
+  color: #fff;
+  font-style: italic;
+}
+
+/* --- Store Layout --- */
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+    padding-bottom: 5rem;
+}
+
+/* Card Styling */
+.product-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 3.5rem 2.5rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-card:hover {
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Badge Styling */
+.badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: oklch(63.322% 0.09856 74.967);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Icon & Typography */
+.product-icon {
+    font-size: 4.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+.product-card h3 {
+    font-size: 2.4rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.product-card p {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+}
+
+/* Pricing */
+.price {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 2.5rem;
+}
+
+.price span {
+    font-size: 1.4rem;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+/* Features List */
+.features {
+    text-align: left;
+    list-style: none;
+    margin-bottom: 3rem;
+}
+
+.features li {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.features li i {
+    color: #2ecc71; /* Warna hijau cerah untuk centang */
+}
+
+/* Buy Button */
+.btn-buy {
+    display: block;
+    width: 100%;
+    padding: 1.5rem;
+    background: #fff;
+    color: oklch(63.322% 0.09856 74.967);
+    border-radius: 15px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-buy:hover {
+    background: oklch(63.322% 0.09856 74.967);
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(236, 158, 74, 0.3);
+    transform: scale(1.03);
+}
+
+.section-header {
+    margin-bottom: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Menengahkan judul dan sub-judul */
+}
+
+.section-header .section-title {
+    font-size: 3.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.section-header .section-subtitle {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Penyesuaian Main Section agar Header berada di atas */
+#main-section {
+    padding: 8rem 9%;
+    display: flex;
+    flex-direction: column; /* Mengubah arah agar header di atas card-list */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tata Letak Card List */
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Desain Kartu (Card) */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Efek Hover Kartu */
+.card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
+    box-shadow: 0 15px 35px rgba(236, 158, 74, 0.3);
+}
+
+/* Kotak Ikon */
+.icon-box {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    transition: 0.3s;
+}
+
+.icon-box.blue-bg {
+    background: oklch(63.322% 0.09856 74.967); /* Menggunakan warna aksen portofolio Anda */
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(236, 158, 74, 0.4);
+}
+
+/* Text di Dalam Kartu */
+.card-text h3 {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.card-text p {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+/* Animasi Ikon Saat Hover */
+.card:hover .icon-box {
+    transform: scale(1.1) rotate(5deg);
+    background: #fff;
+    color: oklch(63.322% 0.09856 74.967);
+}
+
+/* Styling Tombol Kembali yang Menarik */
+header .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.15); /* Efek transparan */
+    backdrop-filter: blur(8px); /* Efek blur kaca */
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 50px; /* Bentuk kapsul */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+header .back-link i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+header .back-link:hover {
+    background: oklch(63.322% 0.09856 74.967); /* Warna utama saat hover */
+    border-color: oklch(63.322% 0.09856 74.967);
+    color: #fff;
+    transform: translateX(-5px); /* Sedikit bergeser ke kiri */
+    box-shadow: 0 8px 25px rgba(236, 158, 74, 0.4);
+}
+
+header .back-link:hover i {
+    transform: translateX(-3px); /* Panah ikut bergeser */
+}
+
+.store-grid, .donation-section {
+    margin-top: 5rem;
+}
+
+.section-title {
+    color: #fff;
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sub-label {
+    color: #fff;
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+    font-weight: 300;
+}
+
+/* Grid Nominal Lebih Bagus */
+.nominal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.navbar-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.btn-back {
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-spacer {
+    flex: 1;
+}
+
+.btn-nominal {
+    padding: 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    background: transparent;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-nominal:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-nominal.active {
+    background: oklch(63.322% 0.09856 74.967);
+    border-color: oklch(63.322% 0.09856 74.967);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(236, 158, 74, 0.4);
+}
+
+/* Input Custom */
+input#custom-nominal {
+    width: 100%;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+/* Tombol Bayar */
+.btn-pay {
+    width: 100%;
+    padding: 1.6rem;
+    background: #2ecc71;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-pay:hover {
+    background: #27ae60;
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
+}
+
+/* Container QRIS */
+#qris-container {
+    background: #fff !important;
+    padding: 2.5rem !important;
+    border-radius: 20px !important;
+    margin-top: 3rem !important;
+}
+
+#qris-container p {
+    color: #333 !important;
+    font-size: 1.6rem !important;
+}
+
+/* Tabel Riwayat */
+.history-section {
+    margin-top: 5rem;
+}
+
+.btn-refresh {
+    background: transparent;
+    color: #fff;
+    margin-top: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+}
+
+.history-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.history-table th {
+    background: #f8f9fa;
+    color: #555;
+    font-weight: 600;
+}
+
+.history-table td {
+    color: #333;
+}
+
+/* Footer */
+footer {
+  background-color: oklch(63.322% 0.09856 74.967);
+  text-align: center;
+  padding: 1rem 0 3rem;
+  margin-top: 3rem;
+}
+
+footer .socials {
+  color: #fff;
+  padding: 1rem 0;
+}
+
+footer .socials a {
+  color: #fff;
+  margin: 1rem;
+}
+
+footer .socials a:hover,
+footer .links a:hover {
+  color: #fff;
+}
+
+footer .links {
+  margin-bottom: 1.4rem;
+}
+
+footer .links a {
+  color: #fff;
+  padding: 0.7rem 1rem;
+}
+
+footer .credit {
+  font-size: 0.8rem;
+}
+
+footer .credit a {
+  color: #fff;
+  font-weight: 700;
+}
+
+@keyframes cursor {
+  to {
+    border-left: 3px solid oklch(63.322% 0.09856 74.967);
+  }
+}
+
+@keyframes words {
+
+  0%,
+  50% {
+    content: "Beginner";
+  }
+
+  50%,
+  100% {
+    content: "Developer";
+  }
+}
+
+@media (max-width: 1000px) {
+  .home {
+    gap: 4rem;
+  }
+
+  .about {
+    gap: 4rem;
+    background-color: #513c28;
+  }
+
+  .hobi {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 55%; /* Mengecilkan skala sedikit agar pas di tablet */
+  }
+
+  /* Menghilangkan paksaan tinggi pada section */
+  section {
+    min-height: auto;
+    padding: 8rem 7% 2rem; /* Sesuaikan padding agar tidak terlalu renggang */
+  }
+
+  .home {
+    padding-top: 10rem; /* Beri ruang untuk header yang fixed */
+    height: auto;
+  }
+}
+
+@media(max-width:995px) {
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  #music-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #f1d7d7fd;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: #513c28;
+    display: block;
+    margin: 1.5rem;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+
+  .home {
+    flex-direction: column;
+    margin: 5rem 4rem;
+  }
+
+  .home .home-content h3 {
+    font-size: 2.5rem;
+  }
+
+  .home-content h1 {
+    font-size: 5rem;
+  }
+
+  .home-img img {
+    width: 55vw;
+    margin-top: 4rem;
+  }
+
+  .about {
+    flex-direction: column;
+    background-color: #513c28;
+  }
+
+  .about .about-content h3 {
+    font-size: 2.5rem;
+  }
+
+  .about-content h1 {
+    font-size: 5rem;
+  }
+
+  .about-img img {
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
+
+  .hobi .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    justify-content: center;
+  }
+
+  .hobi .row .menu-card {
+    text-align: center;
+    padding-bottom: 4rem;
+  }
+
+  .hobi .row .menu-card img {
+    border-radius: 50%;
+    width: 100px;
+  }
+
+  .hobi .row .menu-card .menu-card-title {
+    color: #fff;
+    margin: 1rem auto 0.5rem;
+  }
+}

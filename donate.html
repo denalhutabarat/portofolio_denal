@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Denal | Donate</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+       <nav class="navbar">
+    <div class="navbar-left">
+        <a href="javascript:void(0)" onclick="window.history.back()" class="btn-back">
+            <i data-feather="arrow-left"></i>
+        </a>
+    </div>
+
+    <a href="index.html" class="navbar-logo">Portofolio <span>Denal</span></a>
+
+    <div class="navbar-spacer"></div>
+</nav>
+
+    <div class="container">
+
+        <section class="donation-section">
+            <h2 class="section-title"><i class="fas fa-money-bill-wave"></i> Pilih Jumlah Donasi</h2>
+            <div class="underline"></div>
+
+            <p class="sub-label">Pilih nominal cepat:</p>
+            <div class="nominal-grid">
+                <button class="btn-nominal" onclick="selectNominal(5000)">Rp 5,000</button>
+                <button class="btn-nominal" onclick="selectNominal(10000)">Rp 10,000</button>
+                <button class="btn-nominal" onclick="selectNominal(20000)">Rp 20,000</button>
+                <button class="btn-nominal" onclick="selectNominal(50000)">Rp 50,000</button>
+                <button class="btn-nominal" onclick="selectNominal(100000)">Rp 100,000</button>
+            </div>
+
+            <p class="sub-label">Atau masukkan nominal custom:</p>
+            <input type="number" id="custom-nominal" placeholder="Masukkan jumlah (min. Rp 5000)">
+
+            <div id="qris-container"
+                style="display: none; text-align: center; margin-top: 20px; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <p style="font-size: 14px; font-weight: bold; color: #333; margin-bottom: 10px;">Silakan Scan QRIS:</p>
+                <img id="qris-image" src="" alt="QRIS Xendit"
+                    style="width: 250px; height: 250px; border: 2px solid #f0f0f0; border-radius: 10px;">
+                <p style="font-size: 12px; color: #888; margin-top: 10px;">ID Transaksi: <span
+                        id="display-trans-id"></span></p>
+            </div>
+            <button class="btn-pay" onclick="processPayment()">Bayar Sekarang</button>
+        </section>
+    </div>
+    </div>
+
+    <script type="module" src="/payment.js"></script>
+    <script type="module" src="/main.js"></script>
+    
+    <script>
+  feather.replace();
+</script>
+
+<script src="https://unpkg.com/feather-icons"></script>
+</body>
+
+</html>
